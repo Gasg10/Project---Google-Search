@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesquisa Google</title>
+    <title>Pesquisa Avançada do Google</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,52 +26,60 @@
             color: #1a73e8;
         }
         .search-container {
-            text-align: center;
+            text-align: left;
+            max-width: 500px;
+            width: 100%;
+        }
+        .search-container div {
+            margin-bottom: 10px;
         }
         input[type="text"] {
-            width: 400px;
+            width: 100%;
             padding: 10px;
-            border-radius: 20px;
+            border-radius: 5px;
             border: 1px solid #ddd;
             outline: none;
         }
-        input[type="submit"], input[type="button"] {
+        input[type="submit"] {
             margin-top: 10px;
             padding: 10px 20px;
-            border-radius: 20px;
+            border-radius: 5px;
             border: none;
             background-color: #1a73e8;
             color: white;
             cursor: pointer;
             outline: none;
         }
-        input[type="button"] {
-            background-color: #f8f9fa;
-            color: #1a73e8;
-        }
-        input[type="submit"]:hover, input[type="button"]:hover {
+        input[type="submit"]:hover {
             background-color: #1558b1;
         }
     </style>
 </head>
 <body>
     <div class="nav">
+        <a href="index.html">Pesquisa Google</a>
         <a href="images.html">Pesquisa de Imagens</a>
-        <a href="advanced.html">Pesquisa Avançada</a>
     </div>
     <div class="search-container">
         <form action="https://www.google.com/search">
-            <input type="text" name="q" placeholder="Pesquisar...">
-            <br>
-            <input type="submit" value="Pesquisa Google">
-            <input type="button" value="Estou com sorte" onclick="luckySearch()">
+            <div>
+                <label for="all">Encontrar páginas com... todas estas palavras:</label>
+                <input type="text" name="as_q" id="all">
+            </div>
+            <div>
+                <label for="exact">Encontrar páginas com... esta palavra ou frase exata:</label>
+                <input type="text" name="as_epq" id="exact">
+            </div>
+            <div>
+                <label for="any">Encontrar páginas com... qualquer uma destas palavras:</label>
+                <input type="text" name="as_oq" id="any">
+            </div>
+            <div>
+                <label for="none">Encontrar páginas com... nenhuma destas palavras:</label>
+                <input type="text" name="as_eq" id="none">
+            </div>
+            <input type="submit" value="Pesquisa Avançada">
         </form>
     </div>
-    <script>
-        function luckySearch() {
-            const query = document.querySelector('input[name="q"]').value;
-            window.location.href = `https://www.google.com/search?btnI=I&q=${query}`;
-        }
-    </script>
 </body>
 </html>

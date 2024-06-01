@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pesquisa Google</title>
+    <title>Pesquisa de Imagens do Google</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -35,7 +35,7 @@
             border: 1px solid #ddd;
             outline: none;
         }
-        input[type="submit"], input[type="button"] {
+        input[type="submit"] {
             margin-top: 10px;
             padding: 10px 20px;
             border-radius: 20px;
@@ -45,33 +45,23 @@
             cursor: pointer;
             outline: none;
         }
-        input[type="button"] {
-            background-color: #f8f9fa;
-            color: #1a73e8;
-        }
-        input[type="submit"]:hover, input[type="button"]:hover {
+        input[type="submit"]:hover {
             background-color: #1558b1;
         }
     </style>
 </head>
 <body>
     <div class="nav">
-        <a href="images.html">Pesquisa de Imagens</a>
+        <a href="index.html">Pesquisa Google</a>
         <a href="advanced.html">Pesquisa Avançada</a>
     </div>
     <div class="search-container">
         <form action="https://www.google.com/search">
-            <input type="text" name="q" placeholder="Pesquisar...">
+            <input type="hidden" name="tbm" value="isch">
+            <input type="text" name="q" placeholder="Pesquisar imagens...">
             <br>
-            <input type="submit" value="Pesquisa Google">
-            <input type="button" value="Estou com sorte" onclick="luckySearch()">
+            <input type="submit" value="Pesquisa de Imagens">
         </form>
     </div>
-    <script>
-        function luckySearch() {
-            const query = document.querySelector('input[name="q"]').value;
-            window.location.href = `https://www.google.com/search?btnI=I&q=${query}`;
-        }
-    </script>
 </body>
 </html>
